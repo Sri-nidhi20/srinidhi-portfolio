@@ -1,0 +1,206 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: Fraunces;
+    --font-body: "DM Sans";
+    --font-mono: "Geist Mono";
+    --radius: 0.5rem;
+
+    --background: 0.99 0 0;
+    --foreground: 0.15 0 0;
+    --card: 0.98 0 0;
+    --card-foreground: 0.15 0 0;
+    --popover: 0.97 0 0;
+    --popover-foreground: 0.15 0 0;
+
+    --primary: 0.72 0.18 280;
+    --primary-foreground: 0.98 0 0;
+
+    --secondary: 0.75 0.14 160;
+    --secondary-foreground: 0.15 0 0;
+    --muted: 0.92 0 0;
+    --muted-foreground: 0.5 0 0;
+
+    --accent: 0.72 0.18 280;
+    --accent-foreground: 0.98 0 0;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+
+    --border: 0.88 0 0;
+    --input: 0.9 0 0;
+    --ring: 0.72 0.18 280;
+
+    --chart-1: 0.65 0.22 40;
+    --chart-2: 0.6 0.12 185;
+    --chart-3: 0.4 0.07 227;
+    --chart-4: 0.83 0.19 84;
+    --chart-5: 0.77 0.19 70;
+
+    --sidebar: 0.98 0 0;
+    --sidebar-foreground: 0.15 0 0;
+    --sidebar-primary: 0.72 0.18 280;
+    --sidebar-primary-foreground: 0.98 0 0;
+    --sidebar-accent: 0.92 0 0;
+    --sidebar-accent-foreground: 0.25 0 0;
+    --sidebar-border: 0.88 0 0;
+    --sidebar-ring: 0.72 0.18 280;
+  }
+
+  .dark {
+    /* Dark navy base */
+    --background: 0.13 0.025 255;
+    --foreground: 0.96 0.008 240;
+    --card: 0.17 0.03 255;
+    --card-foreground: 0.96 0.008 240;
+    --popover: 0.2 0.025 255;
+    --popover-foreground: 0.96 0.008 240;
+
+    /* Cyan primary */
+    --primary: 0.78 0.14 200;
+    --primary-foreground: 0.1 0.025 255;
+
+    /* Emerald secondary */
+    --secondary: 0.7 0.13 155;
+    --secondary-foreground: 0.1 0.025 255;
+
+    --muted: 0.2 0.025 255;
+    --muted-foreground: 0.58 0.015 250;
+
+    --accent: 0.78 0.14 200;
+    --accent-foreground: 0.1 0.025 255;
+
+    --destructive: 0.62 0.2 22;
+    --destructive-foreground: 0.96 0.008 240;
+
+    --border: 0.24 0.025 255;
+    --input: 0.2 0.025 255;
+    --ring: 0.78 0.14 200;
+
+    --chart-1: 0.78 0.14 200;
+    --chart-2: 0.7 0.13 155;
+    --chart-3: 0.77 0.19 70;
+    --chart-4: 0.68 0.18 300;
+    --chart-5: 0.65 0.22 25;
+
+    --sidebar: 0.15 0.025 255;
+    --sidebar-foreground: 0.96 0.008 240;
+    --sidebar-primary: 0.78 0.14 200;
+    --sidebar-primary-foreground: 0.1 0.025 255;
+    --sidebar-accent: 0.2 0.025 255;
+    --sidebar-accent-foreground: 0.9 0.008 240;
+    --sidebar-border: 0.24 0.025 255;
+    --sidebar-ring: 0.78 0.14 200;
+  }
+
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("/assets/fonts/DMSans.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/assets/fonts/GeistMono.woff2") format("woff2");
+  font-display: swap;
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .gradient-accent {
+    background: linear-gradient(
+      135deg,
+      oklch(var(--primary)),
+      oklch(var(--secondary))
+    );
+  }
+
+  .gradient-text {
+    background: linear-gradient(
+      135deg,
+      oklch(var(--primary)),
+      oklch(0.85 0.18 170)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .skill-tag {
+    @apply px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20 transition-smooth hover:bg-primary/20;
+  }
+
+  .skill-tag-emerald {
+    @apply px-3 py-1 rounded-full text-xs font-medium bg-secondary/10 text-secondary border border-secondary/20 transition-smooth hover:bg-secondary/20;
+  }
+
+  .project-card {
+    @apply rounded-xl bg-card border border-border overflow-hidden transition-smooth hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5;
+  }
+
+  .project-accent-left {
+    @apply border-l-4 border-l-primary;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-display font-bold text-foreground;
+  }
+
+  .section-badge {
+    @apply inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-primary border border-primary/30 bg-primary/10 mb-4;
+  }
+
+  .glow-cyan {
+    box-shadow: 0 0 30px -5px oklch(var(--primary) / 0.3);
+  }
+
+  .hero-text-shadow {
+    text-shadow: 0 0 80px oklch(var(--primary) / 0.25);
+  }
+}
+
+/* Print styles for resume download */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #resume-printable,
+  #resume-printable * {
+    visibility: visible;
+  }
+  #resume-printable {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    font-family: "DM Sans", sans-serif;
+    font-size: 11pt;
+    line-height: 1.4;
+    color: #0f172a;
+    background: white;
+  }
+}

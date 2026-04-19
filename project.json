@@ -1,0 +1,25 @@
+{
+  "overview": "A professional portfolio website for Srinidhi Kukutam, a BCA student specializing in Data Analytics and Business Intelligence. Designed to impress MNC recruiters with a modern dark navy design showcasing skills, projects, leadership, and a downloadable resume.",
+  "features": [
+    "Hero section with name, title, and contact links",
+    "About/Professional summary section",
+    "Visual technical skills showcase",
+    "Project cards for ETL Pipeline, MindScribe, and Asha AI",
+    "Google Student Campus Ambassador highlight",
+    "Dialogue Dynamics Club leadership section",
+    "Education and certifications",
+    "Downloadable resume button",
+    "Clickable LinkedIn, Gmail, and phone links",
+    "Smooth scroll navigation",
+    "Fully responsive dark navy design"
+  ],
+  "category": "portfolio",
+  "tags": [
+    "portfolio",
+    "data-analytics",
+    "resume",
+    "professional",
+    "dark-theme"
+  ],
+  "last_updated": "2026-04-18T13:29:05.512Z"
+}
